@@ -23,6 +23,6 @@
   "secondaryTokenAttribute": null,
   "license": "LICENSE.txt"
   "url": "https://github.com/craftandogames/cangtrev",
-  "manifest": "https://github.com/craftandogames/cangtrev/system.json",
+  "manifest": "https://raw.githubusercontent.com/craftandogames/cangtrev/main/system.json",
   "download": "https://github.com/jsavko/mouseguard/releases/download/0.2.2/system.zip",
 }
