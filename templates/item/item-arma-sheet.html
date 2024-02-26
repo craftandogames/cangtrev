@@ -1,0 +1,80 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </div>
+    </header>
+	
+	<div>
+		<table>
+			<tr>
+				<td>Resumo</td>
+				<td>
+					<input type="text" name="system.resumo" value="{{item.system.resumo}}" />
+				</td>
+			</tr>
+		</table>
+	</div>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Descrição</a>
+        <a class="item" data-tab="stats">Estatísticas</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            <div>
+				<div class="item-description">
+					{{editor Descricao target="system.descricao" button=true editable=editable}}
+				</div>
+			</div>
+        </div>
+		
+        <div class="tab" data-group="primary" data-tab="stats">
+            <div>
+				<table>
+					<tr>
+						<td>Dano</td>
+						<td>
+							<input type="text" name="system.dano" value="{{item.system.dano}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Tipo</td>
+						<td>
+							<input type="text" name="system.tipo" value="{{item.system.tipo}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Tiros</td>
+						<td>
+							<input type="text" name="system.tiros" value="{{item.system.tiros}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Recarga/Preparo</td>
+						<td>
+							<input type="text" name="system.recarga" value="{{item.system.recarga}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Tamanho</td>
+						<td>
+							<input type="text" name="system.tamanho" value="{{item.system.tamanho}}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Valor</td>
+						<td>
+							<input type="text" name="system.custo" value="{{item.system.custo}}" />
+						</td>
+					</tr>
+				</table>
+			</div>
+        </div>
+    </section>
+</form>

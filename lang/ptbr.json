@@ -1,0 +1,65 @@
+{
+	"l10n":{
+		"atributos":{
+			"parrudez":{
+				"nome": "Parrudez",
+				"secundarios":{
+					"forca": "Força",
+					"saude": "Saúde"
+				},
+				"terceiros":{
+					"carrera": "Carrera"
+				}
+			},
+			"destreza":{
+				"nome": "Destreza",
+				"secundarios":{
+					"coordenacao": "Coordenação",
+					"ligeireza": "Ligeireza"
+				},
+				"terceiros":{
+					"iniciativa": "Iniciativa"
+				}
+			},
+			"esperteza":{
+				"nome": "Esperteza",
+				"secundarios":{
+					"inteligencia": "Inteligência",
+					"percepcao": "Percepção"
+				},
+				"terceiros":{
+					"leriado": "Leriado"
+				}
+			},
+			"presenca":{
+				"nome": "Presença",
+				"secundarios":{
+					"simpatia": "Simpatia",
+					"valentia": "Valentia"
+				},
+				"terceiros":{
+					"cabrerisse": "Cabreirisse"
+				}
+			}
+		},
+		"pericias": {
+			"alerta": "Alerta",
+			"armaDeFio": "Arma de Fio",
+			"armaDePolva": "Arma de Pólva",
+			"artista": "Artista",
+			"boniteza": "Boniteza",
+			"catimbo": "Catimbó",
+			"cumpadres": "Cumpadres",
+			"cura": "Cura",
+			"dinheiro": "Dinheiro",
+			"estudo": "Estudo",
+			"fama": "Fama",
+			"fineza": "Fineza",
+			"preparoFisico": "Preparo Físico",
+			"sairNaTapa": "Sair na Tapa",
+			"sobrevivencia": "Sobrevivência",
+			"surdina": "Surdina"
+		},
+		"usarFicha": "Usou uma ficha de narrativa!"
+	}
+}	

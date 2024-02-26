@@ -1,0 +1,465 @@
+/* Global styles */
+
+.rollable:hover, .rollable:focus {
+  color: #ccc;
+  text-shadow: 0 0 10px #8306a2;
+  cursor: pointer;
+}
+.rollable {
+	color: black
+}
+
+.magicRoll:hover, .magicRoll:focus {
+  color: #000;
+  text-shadow: 0 0 10px #8306a2;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+.rollable:hover, .rollable:focus {
+  color: #ccc;
+  text-shadow: 0 0 10px #8306a2;
+  cursor: pointer;
+}
+.rollable {
+	color: black
+}
+
+.magicRoll:hover, .magicRoll:focus {
+  color: #000;
+  text-shadow: 0 0 10px #8306a2;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #999;
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+#chat-log .chat-message {
+background: white;
+color: black	
+	}
+#chat-log .chat-message .message-header .message-sender{
+	color:black;
+}
+.message-content .dice-roll .dice-total {
+background: white;
+color: black;}
+
+.cangtrev .window-content {
+background: white ;	
+color:black;}
+.cangtrev .window-content input{
+background: white ;	
+color:black;
+}	
+
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px #8306a2;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #999;
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* Styles limited to cangtrev sheets */
+.cangtrev .sheet-header {
+  margin-bottom: 10px;
+}
+
+.cangtrev .sheet-header .profile-img {
+  height: 100px;
+  margin-right: 0px;
+}
+
+.cangtrev .sheet-header .header-fields {
+  margin: 0;
+}
+.sheet header.sheet-header img {
+height: auto;
+margin: auto;
+}
+.cangtrev .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+
+.cangtrev .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.cangtrev .Atributos-input {
+  margin: 0;
+  width: 20px;
+}
+
+.cangtrev .editor{
+  height: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.cangtrev .sheet-tabs {
+  margin: 0;
+}
+
+.cangtrev .sheet-body,
+.cangtrev .sheet-body .tab,
+.cangtrev .sheet-body .tab .editor {
+  height: 100%;
+}
+
+.cangtrev .tox .tox-editor-container {
+  background: #000;
+}
+
+.cangtrev .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.cangtrev .resource-label {
+  font-weight: bold;
+  text-transform: none;
+}
+
+.cangtrev .tabs {
+  display: block;
+  height: 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+}
+
+.cangtrev .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+  border-right: 1px solid #BBB;
+  border-left: 1px solid #BBB;
+}
+
+.cangtrev .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.cangtrev .tabs a.item:hover {
+  text-shadow: 0 0 8px purple;
+}
+
+.cangtrev .pwtabs > *{
+  margin: 0;
+}
+
+.cangtrev .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.cangtrev .items-list .item-header {
+  font-weight: bold;
+}
+
+.cangtrev .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.cangtrev .items-list .item .item-image {
+  margin-right: 5px;
+}
+
+.cangtrev .items-list .item img {
+  display: block;
+  src: systems/cangtrev/img/item.png;
+
+}
+
+.cangtrev .items-list .item-name {
+  margin: 0;
+}
+
+.cangtrev .items-list .item-controls {
+  text-align: right;
+}
+
+.cangtrev .items-list .bio-item {
+  padding: 50px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.cangtrev .items-list .bio-item .bio-label {
+  display: block;
+}
+
+.cangtrev .items-list .basicMove {
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.cangtrev .items-list .basicMove .resource-label {
+  display: block;
+}
+
+.cangtrev .items-list .basicMove .basicMove-title {
+  font-size: 20pt;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+.cangtrev .items-list .Municos {
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.cangtrev .items-list .Municos .Municos-data {
+  display: block;
+}
+
+.cangtrev .items-list .Municos .Municos-title {
+  font-size: 20pt;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+.cangtrev .mce-div {
+	height: 128px;
+}
+
+.cangtrev .item-description {
+	height: 256px;
+}
+
+.cangtrev .standardTable tr td{
+	table-layout: fixed; 
+}
+table td:first-child {
+  padding-left: 0px;
+}
+
+.cangtrev .little-ball{
+	height: 16px;
+}
+.cangtrev .logo {
+border: none;
+width: 30%;
+height: auto;
+}

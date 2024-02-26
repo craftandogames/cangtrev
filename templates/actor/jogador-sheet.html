@@ -1,0 +1,373 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header" style="display: inline">
+		<img class="logo" src="systems/cangtrev/img/logo.png"  style="display: block; flex: none"/>	
+		<table>
+			<tr>
+				<td>
+					<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" style="display: inline; flex: none"/>
+				</td>
+				<td style="padding: 0 2%">
+					<div class="header-fields" style="display: inline; flex: none;"/>
+						<h2><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h2>
+						<div style="display: block">
+							<table>
+								<tr>
+									<td>
+										<div>
+											Nivel: <input class="Atributos-input" name="system.nivel" type="number" value="{{actor.system.nivel}}"/>
+										</div>
+										<table>
+											<tr>
+												<td>Virtude:</td>
+												<td><input name="system.virtude" type="text" value="{{actor.system.virtude}}"/></td>
+											</tr>
+										</table>
+									</td>
+									<td>
+										<div>
+											XP:
+											<input class="Atributos-input" name="system.xp.atual" type="number" value="{{actor.system.xp.atual}}"/>
+											/
+											<input class="Atributos-input" name="system.xp.limite" type="number" value="{{actor.system.xp.limite}}"/>
+										</div>
+										<table>
+											<tr>
+												<td>Fraqueza:</td>
+												<td><input name="system.fraqueza" type="text" value="{{actor.system.fraqueza}}"/></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" style="height:auto;" data-group="primary">
+        <a class="item" data-tab="atributos">Atributos</a>
+        <a class="item" data-tab="pericias">Perícias</a>
+        <a class="item" data-tab="equipamentos">Equipamentos</a>
+        <a class="item" data-tab="itens">Troços</a>
+        <a class="item" data-tab="poderes">Poderes</a>
+        <a class="item" data-tab="notas">Notas</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+		<div class="tab notes" data-group="primary" data-tab="atributos">
+			<table class="standardTable">
+				<tr>
+					<td style="width: 53%; padding: 0 1%">
+						{{#each actor.system.atributos as |attr id|}}
+							<div>
+								<table>
+									<tr>
+										<td style="width:24%; padding: 0 2%">
+											<span class="rollable roll-attr" attr="@atributos.{{id}}.valor" attrSet="{{id}}">
+												{{localize (concatenate (concatenate "l10n.atributos." id ) ".nome") }}
+											</span>
+											<div>
+												<input class="Atributos-input" name="system.atributos.{{id}}.valor" type="number" value="{{attr.valor}}"/>
+											</div>
+										</td>
+										<td style="width:40	%; padding: 0 2%">
+											<table>
+												{{#each attr.secundarios as |attr2 id2|}}
+													<tr>
+														<td style="width: 75%">
+															{{localize (concatenate (concatenate (concatenate "l10n.atributos." id) ".secundarios.") id2 ) }}
+														</td>
+														<td style="width: 25%">
+															<input class="Atributos-input" name="system.atributos.{{id}}.secundarios.{{id2}}" type="number" value="{{attr2}}"/>
+														</td>
+													</tr>
+												{{/each}}
+											</table>
+										</td>
+										<td style="width:24%; padding: 0 2%">
+											{{#each attr.terceiros as |attr3 id3|}}
+												<span class="rollable roll-terceiros" attr="@atributos.{{id}}.terceiros.{{id3}}">
+													{{localize (concatenate (concatenate (concatenate "l10n.atributos." id) ".terceiros.") id3 ) }}
+												</span>
+												<div>
+													{{attr3}}
+												</div>
+											{{/each}}
+										</td>
+									</tr>
+								</table>
+							</div>
+						{{/each}}
+					</td>
+					<td style="width: 43%; padding: 0 1%">
+						<div style="font-size: 18px; text-align: center;">
+							<span class="rollable usarFicha">Fichas de Narrativa</span>
+							<table class="standardTable">
+								<tr>
+									<td style="width:37.5%">
+										<span class="rollable change-attribute" value="{{plus actor.system.fichas 1}}" field="system.fichas" >+</span>
+									</td>
+									<td style="width:25%">{{actor.system.fichas}}</td>
+									<td style="width:37.5%">
+										<span class="rollable change-attribute" value="{{minus actor.system.fichas 1}}" field="system.fichas"  ><b>-</b></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div>
+							<div>Firidas</div>
+							<table>
+								<tr>
+									<td>
+										<span class="change-attribute" value="-1" field="system.firidas">
+											<img class="little-ball" src="systems/cangtrev/img/crossedBall.png"/>
+										</span>
+									</td>
+									<td>
+										<div>Amulegado</div>
+										<span class="change-attribute" value="0" field="system.firidas">
+											{{#if (lt 0 (plus actor.system.firidas 1))}}
+												<img class="little-ball" src="systems/cangtrev/img/filledBall.png"/>
+											{{/if}}
+											{{#unless (lt 0 (plus actor.system.firidas 1))}}<img class="little-ball" src="systems/cangtrev/img/emptyBall.png"/>{{/unless}}
+										</span>
+										<div>0</div>
+									</td>
+									<td>
+										<div>Lascado</div>
+										<span class="change-attribute" value="1" field="system.firidas">
+											{{#if (lt 1 (plus actor.system.firidas 1))}}
+												<img class="little-ball" src="systems/cangtrev/img/filledBall.png"/>
+											{{/if}}
+											{{#unless (lt 1 (plus actor.system.firidas 1))}}<img class="little-ball" src="systems/cangtrev/img/emptyBall.png"/>{{/unless}}
+										</span>
+										<div>-1</div>
+									</td>
+									<td>
+										<div>Istrupiado</div>
+										<span class="change-attribute" value="2" field="system.firidas">
+											{{#if (lt 2 (plus actor.system.firidas 1))}}
+												<img class="little-ball" src="systems/cangtrev/img/filledBall.png"/>
+											{{/if}}
+											{{#unless (lt 2 (plus actor.system.firidas 1))}}<img class="little-ball" src="systems/cangtrev/img/emptyBall.png"/>{{/unless}}
+										</span>
+										<div>-2</div>
+									</td>
+									<td>
+										<div>Só o Coió</div>
+										<span class="change-attribute" value="3" field="system.firidas">
+											{{#if (lt 3 (plus actor.system.firidas 1))}}
+												<img class="little-ball" src="systems/cangtrev/img/filledBall.png"/>
+											{{/if}}
+											{{#unless (lt 3 (plus actor.system.firidas 1))}}<img class="little-ball" src="systems/cangtrev/img/emptyBall.png"/>{{/unless}}
+										</span>
+										<div>X</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div>
+							<div>Maledicência {{actor.system.maledicencia.pontos}}</div>
+							<div>
+								{{#times 11}}
+									<span class="change-attribute" value="{{.}}" field="system.maledicencia.pontos">
+										{{#if (lt . (plus ../actor.system.maledicencia.pontos 1))}}
+											{{#if (eq . 0)}}<img class="little-ball" src="systems/cangtrev/img/crossedBall.png"/>{{/if}}
+											{{#unless (eq . 0)}}<img class="little-ball" src="systems/cangtrev/img/filledBall.png"/>{{/unless}}
+										{{/if}}
+										{{#unless (lt . (plus ../actor.system.maledicencia.pontos 1))}}
+											<img class="little-ball" src="systems/cangtrev/img/emptyBall.png"/>
+										{{/unless}}
+									</span>
+								{{/times}}
+							</div>
+							<table>
+								<tr>
+									<td><input name="system.maledicencia.arquetipo" type="text" value="{{actor.system.maledicencia.arquetipo}}"/></td>
+									<td><input class="Atributos-input" name="system.maledicencia.nivel" type="number" value="{{actor.system.maledicencia.nivel}}"/></td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	
+        <div class="tab notes" data-group="primary" data-tab="pericias">
+			<table>
+				{{#each actor.system.pericias as |attr id|}}
+					<tr>
+						<td class="rollable roll-pericia" pericia="{{id}}" valor-pericia="@system.pericias.{{id}}">{{localize (concatenate "l10n.pericias." id)}}</td>
+						<td>
+							<input class="Atributos-input" name="system.pericias.{{id}}" type="number" value="{{attr}}"/>
+						</td>
+					</tr>
+				{{/each}}
+			</table>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="equipamentos">
+			<div>
+				Armas:
+				<button class="item-control item-create" type='arma' data-type="arma">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td>Dano</td>
+							<td>Tipo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "arma")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4><span class="rollable roll-weapon" damage="{{item.data.damage}}" range="{{item.data.shortRange}}">{{item.name}}</span></h4>
+									</td>
+									<td class="item-resume">{{item.data.resumo}}</td>
+									<td>{{item.data.dano}}</td>
+									<td>{{item.data.tipo}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+			<div>
+				Armaduras:
+				<button class="item-control item-create" type='protecao' data-type="protecao">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td>Proteção</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "protecao")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4><span class="rollable roll-weapon" damage="{{item.data.damage}}" range="{{item.data.shortRange}}">{{item.name}}</span></h4>
+									</td>
+									<td class="item-resume">{{item.data.resumo}}</td>
+									<td>{{item.data.defesa}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="itens">
+			<div>
+				<button class="item-control item-create" type='item' data-type="item">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td>Peso(Kg)</td>
+							<td>Custo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "item")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4>{{item.name}}</h4>
+									</td>
+									<td class="item-resume">{{item.data.resumo}}</td>
+									<td>{{item.data.peso}}</td>
+									<td>{{item.data.custo}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="poderes">
+			<div>
+				<button class="item-control item-create" type='poder' data-type="poder">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td>Nível</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "poder")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4>{{item.name}}</h4>
+									</td>
+									<td class="item-resume">{{item.data.resumo}}</td>
+									<td>{{item.data.nivel}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab diary" data-group="primary" data-tab="notas">
+			<div class="mce-div">
+				{{editor notas target="system.notas" button=true editable=editable}}
+			</div>
+		</div>
+    </section>
+</form>
+

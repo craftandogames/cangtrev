@@ -1,0 +1,363 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="systems/cangtrev/img/logobco.png" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <div class="header-fields">
+			<table>
+				<tr>
+					<td>Nome do Personagem</td>
+					<td>Pronome</td>
+				</tr>
+				<tr>
+					<td><input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></td>
+					<td><input name="data.Pronome_personagem" type="text" value="{{data.data.Pronome_personagem}}" /></td>
+				</tr>
+				<tr>
+					<td>Nome da Persona Heroica</td>
+					<td>Pronome</td>
+				</tr>
+				<tr>
+					<td><input name="data.Nome_Heroine" type="text" value="{{data.data.Nome_Heroine}}" /></td>
+					<td><input name="data.Pronome_heroine" type="text" value="{{data.data.Pronome_heroine}}" /></td>
+				</tr>
+				<tr>
+					<td>Nome de Jogadore</td>
+					<td>Pronome</td>
+				</tr>
+				<tr>
+					<td><input name="data.Nome_Jogadore" type="text" value="{{data.data.Nome_Jogadore}}" /></td>
+					<td><input name="data.Pronome_jogadore" type="text" value="{{data.data.Pronome_jogadore}}" /></td>
+				</tr>
+			</table>
+        </div>
+    </header>
+	
+	<div>
+		<table>
+			<tr>
+				{{#each data.data.Atributos as |attr id|}}
+					<td style="width:20%">
+						{{id}}
+						<input class="Atributos-input" name="data.Atributos.{{id}}.value" type="number" value="{{attr.value}}"/>
+					</td>
+				{{/each}}
+			</tr>
+		</table>
+	</div>
+	
+	<div>
+	</div>
+	
+	<div>
+		<table>
+			<tr>
+				<td style="width:50%">
+					<label class="">Condições</label>
+					<div class="mce-div">
+						{{editor content=data.data.condicoes target="data.condicoes" button=true owner=owner editable=editable}}
+					</div>
+				</td>
+				<td style="width:50%">
+					<table>
+						{{#each data.data.Outros as |attr id|}}
+							<tr>
+								<td>{{id}}</td>
+								<td>
+									<input class="Atributos-input" name="data.Outros.{{id}}.value" type="number" value="{{attr.value}}"/>
+								</td>
+							</tr>
+						{{/each}}
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div>
+		<table>
+			<tr>
+				<td>Identidade Diária</td>
+				<td>Arquétipo Mágico</td>
+				<td>Conexão Mística</td>
+			</tr>
+			<tr>
+				<td>{{data.data.identidade_diaria}}</td>
+				<td>{{data.data.personalidade_heroica}}</td>
+				<td>{{data.data.conexao_mistica}}</td>
+			</tr>
+		</table>
+	</div>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="identidade">{{data.data.identidade_diaria}}</a>
+        <a class="item" data-tab="personalidade">{{data.data.personalidade_heroica}}</a>
+        <a class="item" data-tab="conexao">{{data.data.conexao_mistica}}</a>
+        <a class="item" data-tab="basicos">Movimentos Básicos</a>
+        <a class="item" data-tab="relacionamentos">Relacionamentos</a>
+        <a class="item" data-tab="conquistas">Conquistas Heróicas</a>
+        <a class="item" data-tab="arma">Arma</a>
+        <a class="item" data-tab="notas">Notas</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        <div class="tab notes" data-group="primary" data-tab="identidade">
+			<div>
+				<button class="item-control item-create" type='movimento' data-type="{{data.data.identidade_diaria}}">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "movimento")}}
+								{{#if (eqs item.data.Tipo ../data.data.identidade_diaria)}}
+									<tr class="item" data-item-id="{{item._id}}" draggable="true">
+										<td class="item-img">
+											<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+										</td>
+										<td class="item-name">
+											<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+										</td>
+										<td class="item-resume">{{item.data.Resumo}}</td>
+										<td class="item-controls">
+											<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+											<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+								{{/if}}
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="personalidade">
+			<div>
+				<button class="item-control item-create" type='movimento' data-type="{{data.data.personalidade_heroica}}">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "movimento")}}
+								{{#if (eqs item.data.Tipo ../data.data.personalidade_heroica)}}
+									<tr class="item" data-item-id="{{item._id}}" draggable="true">
+										<td class="item-img">
+											<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+										</td>
+										<td class="item-name">
+											<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+										</td>
+										<td class="item-resume">{{item.data.Resumo}}</td>
+										<td class="item-controls">
+											<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+											<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+								{{/if}}
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="conexao">
+			<div>
+				<button class="item-control item-create" type='movimento' data-type="{{data.data.conexao_mistica}}">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "movimento")}}
+								{{#if (eqs item.data.Tipo ../data.data.conexao_mistica)}}
+									<tr class="item" data-item-id="{{item._id}}" draggable="true">
+										<td class="item-img">
+											<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+										</td>
+										<td class="item-name">
+											<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+										</td>
+										<td class="item-resume">{{item.data.Resumo}}</td>
+										<td class="item-controls">
+											<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+											<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+								{{/if}}
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="basicos">
+			<div>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "movimento")}}
+								{{#if (eqs item.data.data.Tipo "basico")}}
+									<tr class="item" data-item-id="{{item._id}}" draggable="true">
+										<td class="item-img">
+											<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+										</td>
+										<td class="item-name">
+											<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+										</td>
+										<td class="item-resume">{{item.data.Resumo}}</td>
+										<td class="item-controls">
+											<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+											<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+								{{/if}}
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="relacionamentos">
+			<div>
+				<button class="item-control item-create" type='relacionamento' data-type="relacionamento">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Alvo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "relacionamento")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+									</td>
+									<td class="item-resume">{{item.data.Resumo}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="conquistas">
+			<div>
+				<button class="item-control item-create" type='conquista_heroica' data-type="conquista">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "conquista_heroica")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+									</td>
+									<td class="item-resume">{{item.data.Resumo}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab notes" data-group="primary" data-tab="arma">
+			<div>
+				<button class="item-control item-create" type='arma' data-type="arma">
+					<i class="fas fa-plus"></i>
+				</button>
+				<div class="items-list">
+					<table>
+						<tr class="item">
+							<td class="item-img" />
+							<td class="item-name">Nome</td>
+							<td class="item-resume">Resumo</td>
+							<td class="item-controls" />
+						</tr>
+						{{#each items as |item id|}}
+							{{#if (eqs item.type "arma")}}
+								<tr class="item" data-item-id="{{item._id}}" draggable="true">
+									<td class="item-img">
+										<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									</td>
+									<td class="item-name">
+										<h4><span class="rollable item-rollable" data-roll="">{{item.name}}</span></h4>
+									</td>
+									<td class="item-resume">{{item.data.Resumo}}</td>
+									<td class="item-controls">
+										<a class="item-control item-edit" data-item-id="{{item._id}}" title="Edit Item"><i class="fas fa-edit"></i></a>
+										<a class="item-control item-delete" data-item-id="{{item._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{{/if}}
+						{{/each}}
+					</table>
+				</div>
+			</div>
+		</div>
+		
+        <div class="tab diary" data-group="primary" data-tab="notas">
+			<div class="mce-div">
+				{{editor content=data.data.notas target="data.notas" button=true owner=owner editable=editable}}
+			</div>
+		</div>
+    </section>
+</form>
+

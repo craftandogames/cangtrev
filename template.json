@@ -1,0 +1,124 @@
+{
+	"Actor": {
+		"types": ["jogador", "npc"],
+		"templates":{
+			"base":{
+				"atributos":{
+					"parrudez":{
+						"valor":0,
+						"secundarios":{
+							"forca":0,
+							"saude":0
+						},
+						"terceiros":{
+							"carrera":0
+						}
+					},
+					"destreza":{
+						"valor":0,
+						"secundarios":{
+							"coordenacao":0,
+							"ligeireza":0
+						},
+						"terceiros":{
+							"iniciativa":0
+						}
+					},
+					"esperteza":{
+						"valor":0,
+						"secundarios":{
+							"inteligencia":0,
+							"percepcao":0
+						},
+						"terceiros":{
+							"leriado":0
+						}
+					},
+					"presenca":{
+						"valor":0,
+						"secundarios":{
+							"simpatia":0,
+							"valentia":0
+						},
+						"terceiros":{
+							"cabrerisse":0
+						}
+					}
+				},
+				"pericias": {
+					"alerta":0,
+					"armaDeFio":0,
+					"armaDePolva":0,
+					"artista":0,
+					"boniteza":0,
+					"catimbo":0,
+					"cumpadres":0,
+					"cura":0,
+					"dinheiro":0,
+					"estudo":0,
+					"fama":0,
+					"fineza":0,
+					"preparoFisico":0,
+					"sairNaTapa":0,
+					"sobrevivencia":0,
+					"surdina":0
+				},
+				"firidas":0,
+				"notas":""
+			}
+		},
+		"jogador":{
+			"templates":["base"],
+			"nivel":0,
+			"jogador":0,
+			"xp":{
+				"atual":0,
+				"limite":0
+			},
+			"fichas":0,
+			"dinheiro":0,
+			"virtude":"",
+			"maledicencia":{
+				"nivel":0,
+				"arquetipo":"",
+				"pontos":0
+			},
+			"fraqueza":""
+		},
+		"npc":{
+			"templates":["base"]
+		}
+	},
+	"Item": {
+		"types":["arma", "protecao", "poder", "item"],
+		"templates": {
+			"base":{
+				"resumo": "",
+				"descricao": ""
+			},
+			"coisa":{
+				"peso":0,
+				"custo":0
+			}
+		},
+		"arma": {
+			"templates":["base", "coisa"],
+			"tipo":"",
+			"dano":"",
+			"tiros":"",
+			"tamanho":"",
+			"recarga":""
+		},
+		"protecao":{
+			"templates":["base", "coisa"],
+			"defesa":0
+		},
+		"poder":{
+			"templates":["base"],
+			"nivel":""
+		},
+		"item":{
+			"templates":["base", "coisa"]
+		}
+	}
+}
