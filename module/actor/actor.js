@@ -24,7 +24,7 @@ export class CangTrevActor extends Actor {
 	computeDerivedData(actorData){
 		let attr = actorData.atributos
 		attr.parrudez.terceiros.carrera = attr.parrudez.secundarios.saude + attr.destreza.secundarios.ligeireza;
-		attr.destreza.terceiros.iniciativa = attr.destreza.secundarios.ligeireza; + attr.esperteza.secundarios.percepcao;
+		attr.destreza.terceiros.iniciativa = attr.destreza.secundarios.ligeireza + attr.esperteza.secundarios.percepcao;
 		attr.esperteza.terceiros.leriado = attr.esperteza.secundarios.inteligencia + attr.presenca.secundarios.simpatia;
 		attr.presenca.terceiros.cabrerisse = attr.esperteza.secundarios.percepcao + attr.presenca.secundarios.valentia;
 	}

@@ -10,10 +10,10 @@ export class CangTrevItem extends Item {
     super.prepareData();
 
     // Get the Item's data
-    const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
+    const itemData = this.system;
+    const actorData = this.actor ? this.actor.system : {};
   }
+  
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
     const abilities = [];

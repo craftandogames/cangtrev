@@ -109,20 +109,21 @@ export default class CangTrevActorSheet extends ActorSheet {
 		default: "Cancel",
 		close: html => {
 			if(adv == 0){
+				let attrLabel = element.innerHTML;
 				let secundario = html.find('[name=secundario]')[0].value;
+				let secundarioLabel = html.find('[name=secundario]')[0].selectedOptions[0].innerHTML;
 				let pericia = html.find('[name=pericia]')[0].value;
+				let periciaLabel = html.find('[name=pericia]')[0].selectedOptions[0].innerHTML;
 				let bonus = html.find('[name=bonus]')[0].value;
 				let dices = "2d6 + " + attr + " + " + secundario + " + " + pericia;
 				if(bonus != ""){
 					dices = dices + " + " + bonus;
 				}
 				
-				console.log(html.find('[name=maior]')[0]);
-				
 				let formulae = dices;
 				console.log(formulae);
-				let label = "Rolando " + formulae;
-				var roll = new Roll(formulae, this.actor.data.data);
+				let label = "Rolando: " + attrLabel + " + " + secundarioLabel + " + " + periciaLabel + " + " + bonus;
+				var roll = new Roll(formulae, this.actor.system);
 				roll.roll({"async": false});
 				console.log(roll);
 				
@@ -189,19 +190,19 @@ export default class CangTrevActorSheet extends ActorSheet {
 		default: "Cancel",
 		close: html => {
 			if(adv == 0){
+				let attrLabel = element.innerHTML;
 				let pericia = html.find('[name=pericia]')[0].value;
+				let periciaLabel = html.find('[name=pericia]')[0].selectedOptions[0].innerHTML;
 				let bonus = html.find('[name=bonus]')[0].value;
 				let dices = "2d6 + " + attr + " + " + pericia;
 				if(bonus != ""){
 					dices = dices + " + " + bonus;
 				}
 				
-				console.log(html.find('[name=maior]')[0]);
-				
 				let formulae = dices;
 				console.log(formulae);
-				let label = "Rolando " + formulae;
-				var roll = new Roll(formulae, this.actor.data.data);
+				let label = "Rolando: " + attrLabel + " + " + periciaLabel + " + " + bonus;
+				var roll = new Roll(formulae, this.actor.system);
 				roll.roll({"async": false});
 				console.log(roll);
 				
